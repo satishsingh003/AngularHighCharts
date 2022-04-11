@@ -1,0 +1,48 @@
+<div>
+    <div class="navbar-brand">Filtering by Date Range</div>
+    <input type="date" (change)="changeFirstInput($event)"> -
+    <input type="date" (change)="changeSecondInput($event)"> -
+    <button type="button" (click)="showPie($event)">Show Pie Chart(By Category)</button> -
+    <button type="button" (click)="updateChart()">Show Bar Chart(By Day)</button>
+    <div class="containerclass row justify-content-center my-5">
+        <div class="col-6">
+            <div class="navbar-brand">Expense Management</div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="expenseheaders">Enpense Type</th>
+                        <th class="expenseheaders">Expense</th>
+                        <th class="expenseheaders">Date</th>
+                        <th class="expenseheaders"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let expense of expenses">
+                        <td>{{expense.expenseType.S}}</td>
+                        <td>{{expense.expense.N}}</td>
+                        <td>{{expense.date.S}}</td>
+                        <td class="whitespacenowrap">
+
+                            <button (click)="deleteExpense(expense.expenseId.N)"
+                                class="btn btn-sm btn-danger btn-delete-user" [disabled]="expense.isDeleting">
+                                <span *ngIf="expense.isDeleting" class="spinner-border spinner-border-sm"></span>
+                                <span *ngIf="!expense.isDeleting">Delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="!expenses">
+                        <td colspan="4" class="text-center">
+                            <span class="spinner-border spinner-border-lg align-center"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <highcharts-chart id="container" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+                [options]="chartOptions" [callbackFunction]="chartCallback" [(update)]="updateFlag" [oneToOne]="true"
+                class="highChartClass">
+            </highcharts-chart>
+        </div>
+    </div>
+</div>

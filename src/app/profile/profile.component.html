@@ -1,0 +1,30 @@
+<div class="row justify-content-center my-5">
+  <div class="col-4">
+    <div class="row">
+      <div class="col mb-2">
+        <label for="expensetype" class="form-label">Expense Type:</label>
+        <input type="expensetype" id="expensetype" name="expensetype" #email="ngModel" [(ngModel)]="user.expensetype"  class="form-control form-control-sm">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="expense" class="form-label">Expense:</label>
+        <input type="text" id="expense" name="expense" #name="ngModel" [(ngModel)]="user.expense" class="form-control form-control-sm">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-2">
+        <label for="Date" class="form-label">Date:</label>
+        <input type="date" id="date" name="date" #name="ngModel"  [(ngModel)]="user.date" class="form-control form-control-sm">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-grid">
+        <button type="button" (click)="update()" class="btn btn-sm btn-dark" [disabled]="loading">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+          Add Expense
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
