@@ -1,4 +1,4 @@
-# MyApp
+# Expense Management and Reporting Application using AWS Congito for User Authentication
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
 
